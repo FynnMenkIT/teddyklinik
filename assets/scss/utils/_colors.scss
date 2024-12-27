@@ -1,22 +1,18 @@
 $colors: (
-    'common': (
-        'white': #ffffff,
-        'black': #021316,
+    'common': ('white': #ffffff, // Weiß
+        'black': #021316, // Schwarz
     ),
-    'heading': (
-        'primary': #021316,
+    'heading': ('primary': #021316, // Primäre Überschriftfarbe
     ),
-    'grey': (
-        '1':#E7F8FE,
+    'grey': ('1': #E7F8FE, // Hellgrau
     ),
-    'text': (
-        'body':#898989,
+    'text': ('body': #898989, // Textfarbe für den Körper
     ),
-    'theme': (
-        '1':#F59831,
-        '2':#1F90A2,
+    'theme': ( // '1': #F59831, // Kommentierte Farbe
+        '1': #9EDB8D, // Thema Farbe 1
+        '2': #2D89BF, // Thema Farbe 2
+        // '2': #1F90A2, // Kommentierte Farbe
     ),
-    'border': (
+    'border': ( // Hier können Grenzfarben hinzugefügt werden
     )
 );
-
