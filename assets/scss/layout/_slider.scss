@@ -1,0 +1,150 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  27. slider css start
+/*----------------------------------------*/
+
+.it-slider {
+    &-bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;   
+        width: 100%; 
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: right center;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: opacity 2500ms ease-in, -webkit-transform 7000ms ease;
+        transition: opacity 2500ms ease-in, -webkit-transform 7000ms ease;
+        transition: transform 7000ms ease, opacity 2500ms ease-in;
+        transition: transform 7000ms ease, opacity 2500ms ease-in, -webkit-transform 7000ms ease;
+        opacity: 0;
+        visibility: hidden;
+    }
+    &-overlay{
+        position: relative;
+        &::after{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            content: '';
+        }
+    }
+    &-height {
+        height: 880px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media #{$xl}{
+            height: 750px;
+        }
+        @media #{$lg}{
+            height: 700px;
+        }
+        @media #{$md}{
+            height: 600px;
+        }
+        @media #{$xs}{
+            height: 470px;
+        }
+    }
+    &-title {
+        font-size: 75px;
+        line-height: 1.1;
+        color: var(--it-common-white);
+        @media #{$xl}{
+            font-size: 62px;
+        }
+        @media #{$lg}{
+            font-size:50px;
+        }
+        @media #{$md}{
+            font-size:40px;
+        }
+        @media #{$xs}{
+            font-size:30px;
+        }
+    }
+    &-content-box {
+        background-color:var(--it-theme-1);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        width: 100%;
+        height:720px;  
+
+        @media #{$xl}{
+            height:600px;  
+        }
+        @media #{$lg}{
+            height:500px; 
+            width: 550px; 
+        }
+        @media #{$md}{
+            height:450px; 
+            width: 450px; 
+        }
+        @media #{$xs}{
+            height:320px ;
+            width:320px; 
+        }
+        & .it-btn {
+            @media #{$xs}{
+                padding: 0 20px;
+                height: 45px;
+                line-height: 45px;
+                font-size: 12px;
+            }
+        }
+
+    }
+    &-shape{
+        &-1 {
+            position: absolute;
+            bottom: 5%;
+            left: 0;
+        }
+        &-2 {
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            transform: scale(1.1);
+        }
+    }
+    &-content-wrap{
+        transform: scale(.8) rotateY(360deg);
+        transition: 1.2s;
+        opacity: 0;
+        visibility: hidden;
+    }
+    &-active{
+        & .swiper-slide{
+            &.swiper-slide-active {
+                & .it-slider-bg {
+                    -webkit-transform: scale(1.15);
+                    transform: scale(1.15);
+                    opacity: 1;
+                    visibility: visible;
+                }
+                .it-slider-content-wrap{
+                    transform: scale(1) rotateY(0deg);
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+

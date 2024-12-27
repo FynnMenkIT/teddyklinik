@@ -1,0 +1,63 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  11. cta css start
+/*----------------------------------------*/
+
+.it-cta{
+    &-ptb {
+        padding: 133px 0;
+    }
+    &-title {
+        font-size: 45px;
+        color: var(--it-common-white);
+        @media #{$xs}{
+            font-size: 35px;
+        }
+    }
+    &-content {
+        & p {
+            padding: 0 250px;
+            margin-bottom: 32px;
+            color: var(--it-common-white);
+            @media #{$lg}{
+                font-size: 14px;
+                padding: 0 100px;
+            }
+            @media #{$md,$xs}{
+                font-size: 14px;
+                padding: 0px;
+            }
+        }
+    }
+    &-shape {
+        &-1 {
+            position: absolute;
+            bottom: 18%;
+            left: 5%;
+            animation: moving 9s linear infinite;
+            @media #{$xxl}{
+                bottom: 4%;
+                left: -2%;
+                transform: scale(.8);
+            }
+            @media #{$xl}{
+                bottom: 4%;
+                left: -2%;
+                transform: scale(.8);
+            }
+           
+        }
+        &-2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        &-3 {
+            position: absolute;
+            top: 22%;
+            right: 7%;
+            animation: rotate2 4s linear infinite;
+        }
+    }
+}

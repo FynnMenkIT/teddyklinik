@@ -1,0 +1,77 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  12. error css start
+/*----------------------------------------*/
+.it-error {
+    &-input-box  {
+        max-width: 500px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        @media #{$md,$xs}{
+            width: 100%;
+        }
+        & input {
+            border-radius: 5px;
+            padding: 0 20px;
+            height: 62px;
+            line-height: 62px;
+            padding-right: 50px;
+            border: 1px solid rgba(13, 40, 37, 0.10);
+            &:focus {
+                border: 1px solid var(--it-theme-1);
+            }
+            @media #{$md,$xs}{
+                height: 55px;
+                line-height: 55px;
+                font-size: 14px;
+            } 
+        }
+    }
+    &-content {
+        & p {
+            padding: 0 20px;
+            padding-bottom: 5px;
+            @media #{$lg}{
+                padding: 0 132px;
+                font-size: 14px;
+            } 
+            @media #{$md}{
+                padding: 0 90px;
+                font-size: 14px;
+            } 
+            @media #{$xs}{
+                padding: 0px;
+                font-size: 14px;
+            } 
+        }
+    }
+    &-title {
+        font-size: 50px;
+        padding-bottom: 20px;
+        @media #{$xl}{
+            font-size: 45px;
+        } 
+        @media #{$lg}{
+            font-size: 45px;
+        } 
+        @media #{$md}{
+            font-size: 41px;
+        } 
+        @media #{$xs}{
+            font-size: 32px;
+        } 
+        @media #{$sm}{
+            font-size: 34px;
+        } 
+    }
+    &-input-icon {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        & i {
+            color: var(--it-common-black);
+        }
+    }
+}

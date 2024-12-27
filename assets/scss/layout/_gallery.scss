@@ -1,0 +1,120 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  18. gallery css start
+/*----------------------------------------*/
+.it-gallery {
+    &-item {        
+        &:hover {
+            & .it-gallery-thumb-icon {
+                opacity: 1;
+                visibility: visible;
+                transform: translate(-50%,-50%) scale(1);
+            }
+            & .it-gallery-thumb {
+                & img {
+                    transform: scale(1.2);
+                }
+                &::after{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+    &-thumb {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        &::after{
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+            background-color: rgba(3, 20, 23, 0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: .5s;
+        }
+        & img {
+            border-radius: 10px;
+            width: 100%;
+            transition: 1.3s all ease;
+        }
+    }
+    &-thumb-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        transform: translate(-50%,-50%) scale(0);
+        opacity: 0;
+        visibility: hidden;
+        transition: .7s;
+        & a {
+            display: inline-block;
+            height: 60px;
+            width: 60px;
+            line-height: 57px;
+            text-align: center;
+            border-radius: 50%;
+            color: var(--it-common-white);
+            background-color: var(--it-theme-1);            
+        }
+    }
+    &-shape {
+        &-1 {
+            position: absolute;
+            left: 20%;
+            top: 10%;
+            animation: itrotate 3s ease-in-out 3s infinite alternate forwards;
+            @media #{$xxl}{
+                left: 10%;
+            }
+        }
+        &-2 {
+            position: absolute;
+            right: 6%;
+            top: 7%;
+            animation: rotate2 15s linear infinite;
+        }
+        &-3 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            animation: ittranslateY2 4s infinite alternate;
+        }
+    }
+}
+.tp-gallery-filter {
+    & button {
+        font-size: 24px;
+        width: 25%;
+        padding: 35px 0;
+        transition: .4s;
+        font-family: var(--it-ff-schoolbell);
+        color: var(--it-common-black);
+        background-color:#E7F8FE;
+        border-right: 1px solid var(--it-theme-2);
+        @media #{$xs}{
+            width: 100%;
+            padding: 10px 10px;
+            font-size: 17px;
+        }
+        &:last-child{
+            border-right: none;
+        }
+        &.active {
+            color: var(--it-common-white);
+            background-color: var(--it-theme-2);
+        }
+        &:hover {
+            color: var(--it-common-white);
+            background-color: var(--it-theme-2);
+        }
+    }
+}

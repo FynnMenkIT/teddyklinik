@@ -1,0 +1,219 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  22. newsletter css start
+/*----------------------------------------*/
+
+.it-newsletter {
+    &-bg {
+        border-radius: 5px;
+        padding: 60px 75px;
+        @media #{$xl}{     
+            padding: 60px 65px;
+        }
+        @media #{$lg}{     
+            padding: 60px 25px;
+        }
+        @media #{$md}{     
+            padding: 60px 45px;
+        }
+        @media #{$xs}{     
+            padding: 50px 15px;
+        }
+    }
+    &-left {
+        @media #{$md,$xs}{
+            margin-bottom: 30px;
+        }
+    }
+    &-title {
+        font-size: 30px;
+        color: var(--it-common-white);
+        @media #{$xl,$lg,$md,$xs}{     
+            & br {
+                display: none;
+            }
+        }
+    }
+    &-input-box {
+        & input {
+            height: 80px;
+            line-height: 80px;
+            font-size: 15px;
+            font-weight: 400;
+            border-radius: 10px;
+            padding-right: 200px;
+            @media #{$lg,$md}{
+                height: 60px;
+                line-height: 60px;
+            }
+            @media #{$xs}{
+                height: 60px;
+                line-height: 60px;
+                padding-right: 20px;
+            }
+        }
+    }
+    &-button-box {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        @media #{$lg,$md}{
+            right: 5px;
+        }
+        @media #{$xs}{
+            position: static;
+            transform: translateY(0%);
+            margin-top: 20px;
+        }
+        & .it-btn-sm {
+            line-height: 50px;
+            height: 50px;
+            padding: 0 30px;
+            @media #{$xs}{
+                background-color: var(--it-theme-2);
+            }
+        }
+    }
+    &-shape-1 {
+        position: absolute;
+        left: 40px;
+        top: 0;
+        z-index:-1 ;
+    }
+}
+.it-newsletter-2 {
+    &-ptb {
+        padding: 100px 0;
+        margin-top: 90px;
+        margin-bottom: 105px;
+        @media #{$xl}{
+            padding-top: 100px;
+            padding-bottom: 150px;
+        }
+        @media #{$lg}{
+            padding: 140px 0;
+            margin: 0;
+        }
+        @media #{$md,$xs}{
+            padding: 100px 0;
+            margin: 0;
+        }
+    }
+    &-content {
+        & .it-newsletter-input-box {
+            margin: 0 95px;
+            @media #{$xs}{
+                margin: 0px;
+            }
+            & input {
+                height: 60px;
+                line-height: 60px;
+                padding-right: 160px;
+                @media #{$xs}{
+                    padding-right: 30px;
+                }
+                
+            }
+        }
+        & .it-newsletter-button-box {
+            right: 6px;
+        }
+    }
+    &-shape {
+        &-1 {
+            position: absolute;
+            top: 35%;
+            left: 5%;
+            animation: moving 9s linear infinite;
+            @media #{$xxxl}{
+                top: 45%;
+                transform: scale(.8);
+            }
+            @media #{$xxl}{
+                left: 2%;
+                transform: scale(.75);
+            }
+            @media #{$xl}{
+                top: 50%;
+                left: 0%;
+                transform: scale(.7);
+            }
+            @media #{$lg}{
+                top: 40%;
+                left: -4%;
+                transform: scale(.5);
+            }
+        }
+        &-2 {
+            position: absolute;
+            right: 31%;
+            bottom: 7%;
+            animation: itswing 1.4s forwards infinite alternate;
+            transform-origin: top right;
+            @media #{$xxxl,$xxl,$xl}{
+                transform: scale(.8);
+            }
+            @media #{$lg}{
+                right: 31%;
+                bottom: 2%;
+                transform: scale(.6);
+            }
+        }
+        &-3 {
+            position: absolute;
+            right: 5%;
+            top: -1%;
+            animation: rotate2 4s linear infinite;
+            @media #{$xxxl,$xxl,$xl}{
+                transform: scale(.8);
+            }
+            @media #{$lg}{
+                transform: scale(.6);
+            }
+        }
+        &-4 {
+            position: absolute;
+            right: 7%;
+            bottom: -8%;
+            animation: ittranslateX2 4s infinite alternate;
+            @media #{$xxxl,$xxl,$xl}{
+                transform: scale(.8);
+            }
+            @media #{$lg}{
+                transform: scale(.5);
+            }
+        }
+        &-5 {
+            position: absolute;
+            top: -17%;
+            left: 37%;
+            z-index: -1;
+            @media #{$lg,$md,$xs}{
+                display: none;;
+            }
+        }
+        &-6 {
+            position: absolute;
+            top: -21%;
+            left: 0;
+            z-index: -2;
+            @media #{$lg,$md,$xs}{
+                display: none;;
+            }
+        }
+        &-7 {
+            position: absolute;
+            bottom: -25%;
+            left: 0;
+            z-index: -2;
+            @media #{$xl}{
+                bottom: -16%;
+            }
+            @media #{$lg,$md,$xs}{
+                display: none;;
+            }
+        }
+    }
+}

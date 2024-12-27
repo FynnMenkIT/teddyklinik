@@ -1,0 +1,278 @@
+@use '../utils' as *;
+
+.it-btn{
+	display: inline-block;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 0 29px;
+	height: 55px;
+	line-height: 55px;
+	position: relative;
+	transition: .4s;
+	border-radius: 5px;
+	z-index: 1;
+	color: var(--it-common-white);
+	background-color: var(--it-theme-1);
+	font-size: 15px;
+	overflow: hidden;
+	&.circle-effect {
+		position: relative;
+		&::after{
+			background-color: var(--it-common-black);
+			bottom: -100%;
+			content: "";
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: -100%;
+			width: 100%;
+			transform: scaleY(0);
+			transform-origin: bottom;
+			transition-duration: 1s;
+			transition-property: color, background-color,
+			 border-color, text-decoration-color, fill, stroke, 
+			 opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+			transition-timing-function: cubic-bezier(0.14, 0, 0, 1.01);
+			will-change: transform;
+			z-index: -1;
+		}
+	}
+	&.white-style {
+		&::after{
+			background-color: var(--it-common-white);
+		}
+	}
+	&.theme-style {
+		&::after{
+			background-color: var(--it-theme-2);
+		}
+	}
+	@media #{$lg,$md,$xs}{                 
+		font-size: 14px;
+	}
+	& span {
+		& svg {
+			margin-left: 6px;
+			display: inline-block;
+			transform: translateY(-1px);
+		}
+	}
+	&.black-bg {
+		background-color: var(--it-common-black);
+	}
+	&.theme-2-bg {
+		background-color: var(--it-theme-2);
+	}
+	&.white-bg {
+		color: var(--it-theme-1);
+		background-color: var(--it-common-white);
+	}
+	&:hover {
+		color: var(--it-common-white);
+		&.circle-effect {
+			&::after{
+				transform: scaleY(1);
+ 				transform-origin: top;
+			}
+		}
+		&.white-style {
+			color: var(--it-common-black);
+		}
+	}
+
+}
+.it-btn-white {
+	display: inline-block;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 0 29px;
+	height: 55px;
+	line-height: 55px;
+	position: relative;
+	transition: .4s;
+	border-radius: 5px;
+	z-index: 1;
+	color: var(--it-theme-1);
+	background-color: var(--it-common-white);
+	font-size: 15px;
+	overflow: hidden;
+	&.circle-effect {
+		position: relative;
+		&::after{
+			background-color: var(--it-common-black);
+			bottom: -100%;
+			content: "";
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: -100%;
+			width: 100%;
+			transform: scaleY(0);
+			transform-origin: bottom;
+			transition-duration: 1s;
+			transition-property: color, background-color,
+			 border-color, text-decoration-color, fill, stroke, 
+			 opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+			transition-timing-function: cubic-bezier(0.14, 0, 0, 1.01);
+			will-change: transform;
+			z-index: -1;
+		}
+	}
+	@media #{$lg,$md,$xs}{                 
+		font-size: 14px;
+	}
+	& span {
+		& svg {
+			margin-left: 6px;
+			display: inline-block;
+			transform: translateY(-1px);
+		}
+	}
+	&:hover {
+		color: var(--it-common-white);
+		&.circle-effect {
+			&::after{
+				transform: scaleY(1);
+ 				transform-origin: top;
+			}
+		}
+	}
+
+}
+.it-btn-border {
+	display: inline-block;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 0 29px;
+	height: 55px;
+	line-height: 55px;
+	position: relative;
+	transition: .4s;
+	border-radius: 5px;
+	z-index: 1;
+	color: var(--it-common-white);
+	background-color: transparent;
+	font-size: 15px;
+	border: 1px solid var(--it-common-white);
+	@media #{$lg,$md,$xs}{                 
+		font-size: 14px;
+	}
+	& span {
+		& svg {
+			margin-left: 6px;
+			display: inline-block;
+			transform: translateY(-1px);
+		}
+	}
+	&:hover {
+		color: var(--it-theme-1);
+		background-color: var(--it-common-white);
+	}
+}
+.it-btn-sm{
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 0 20px;
+	height: 44px;
+	line-height: 44px;
+	position: relative;
+	transition: .4s;
+	border-radius: 5px;
+	z-index: 1;
+	color: var(--it-common-white);
+	background-color: var(--it-theme-1);
+	overflow: hidden;
+	&.circle-effect {
+		position: relative;
+		&::after{
+			background-color: var(--it-common-black);
+			bottom: -100%;
+			content: "";
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: -100%;
+			width: 100%;
+			transform: scaleY(0);
+			transform-origin: bottom;
+			transition-duration: 1s;
+			transition-property: color, background-color,
+			 border-color, text-decoration-color, fill, stroke, 
+			 opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+			transition-timing-function: cubic-bezier(0.14, 0, 0, 1.01);
+			will-change: transform;
+			z-index: -1;
+		}
+	}
+	& span {
+		& svg {
+			margin-left: 6px;
+			display: inline-block;
+			transform: translateY(-1px);
+		}
+	}
+	&:hover {
+		color: var(--it-common-white);
+		&.circle-effect {
+			&::after{
+				transform: scaleY(1);
+ 				transform-origin: top;
+			}
+		}
+	}
+}
+.it-btn-white-sm {
+	display: inline-block;
+	font-weight: 700;
+	font-size: 14px;
+	padding: 0 20px;
+	height: 40px;
+	width: 140px;
+	line-height: 40px;
+	height: 40px;
+	line-height: 40px;
+	position: relative;
+	transition: 0.3s;
+	text-transform: uppercase;
+	color: var(--it-common-white);
+	background-color: var(--it-theme-1);
+	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+	margin: 5px 0;
+	overflow: hidden;
+	& span{
+		position: relative;
+		z-index: 5;
+	}
+	&.circle-effect {
+		position: relative;
+		&::after{
+			background-color: var(--it-common-black);
+			bottom: -100%;
+			content: "";
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: -100%;
+			width: 100%;
+			transform: scaleY(0);
+			transform-origin: bottom;
+			transition-duration: 1s;
+			transition-property: color, background-color,
+			 border-color, text-decoration-color, fill, stroke, 
+			 opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+			transition-timing-function: cubic-bezier(0.14, 0, 0, 1.01);
+			will-change: transform;
+		}
+	}
+	&:hover {
+		color: var(--it-common-white);
+		&.circle-effect {
+			&::after{
+				transform: scaleY(1);
+ 				transform-origin: top;
+			}
+		}
+	}
+}

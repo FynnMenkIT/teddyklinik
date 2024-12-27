@@ -1,0 +1,55 @@
+@use '../utils' as *;
+
+.it-section-subtitle{
+    color: var(--it-theme-1);
+    font-family: var(--it-ff-schoolbell);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    display: block;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    &.theme-2 {
+        color: var(--it-theme-2);
+    }
+    @media #{$xl}{
+        font-size: 21px;
+    }
+    @media #{$lg}{
+        font-size: 20px;
+    }
+    @media #{$md,$xs}{
+        font-size: 19px;
+    }
+}
+
+.it-section-title{
+    font-size: 45px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    & span {
+        color: var(--it-theme-2);
+    }
+    @media #{$xxl}{                 
+        font-size: 42px;
+    }
+    @media #{$xl}{                 
+        font-size: 37px;
+    }
+    @media #{$lg}{  
+        font-size: 35px;               
+    }
+    @media #{$md}{  
+        font-size: 33px;               
+        & br {
+            display: none;
+        }
+    }
+    @media #{$xs}{  
+        font-size: 27px;               
+        & br {
+            display: none;
+        }
+    }
+}

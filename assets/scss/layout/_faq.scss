@@ -1,0 +1,18 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  14. faq css start
+/*----------------------------------------*/
+.it-faq {
+    &-sidebar {
+        margin-right: 30px;
+        @media #{$md,$xs}{
+            margin-right: 0;
+        }
+    }
+    &-wrap {
+        @media #{$md,$xs}{
+            margin-bottom: 80px;
+        }
+    }
+}

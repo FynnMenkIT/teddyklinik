@@ -1,0 +1,100 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  15. feature css start
+/*----------------------------------------*/
+.it-feature {
+    &-item {
+        &:hover {
+            & .it-feature-shape-1 {
+                & span {
+                    color: var(--it-theme-1);
+                }
+            }
+            & .it-feature-thumb {
+                & img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    &-border {
+        border-bottom: 1px dashed var(--it-theme-2);
+    }
+    &-title {
+        font-size: 22px;
+        font-style: normal;
+        transition: .3s;
+        @media #{$xxl,$xl}{
+            font-size: 20px;
+        }
+        @media #{$xl,$lg}{
+            font-size: 19px;
+        }
+        @media #{$md,$xs}{
+            font-size: 20px;
+        }
+        &:hover {
+            & a {
+                color: var(--it-theme-1);
+            }
+        }
+    }
+    &-thumb {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        z-index: 2;
+        display: inline-block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        overflow: hidden;
+        & img {
+            transition: .5s;
+        }
+    }
+    &-shape {
+        &-1 {
+            position: absolute;
+            top: -15px;
+            left: 0;
+            @media #{$sm}{
+             display: none;
+            }
+            & span {
+                color: var(--it-common-black);
+                transition: .3s;
+                & svg {
+                    @media #{$xl}{
+                        width: 256px;
+                        height: 245px;
+                    }
+                    @media #{$lg}{
+                        width: 210px;
+                        height: 202px;
+                    }
+                }
+            }
+        }
+    }
+}
+.it-feature-2 {
+    &-thumb {
+        mask-image: url(../img/feature/thumb-2-1.png);
+        -webkit-mask-image: url(../img/feature/thumb-2-1.png);
+        height: 100%;
+        width: auto;
+        mask-repeat: no-repeat;
+        background-position: center center;
+        overflow: hidden;
+        display: inline-block;
+        position: relative;
+        z-index: 2;
+        & img {
+            width: 303px;
+        }
+    }
+}

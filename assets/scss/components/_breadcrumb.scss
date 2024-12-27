@@ -1,0 +1,176 @@
+@use '../utils' as *;
+
+
+.it-breadcrumb{
+    &-height {
+        padding-top: 105px;
+        padding-bottom: 120px;
+        @media #{$xs}{
+            padding: 100px 0;
+        } 
+    }
+    &-title{
+        color: var(--it-common-white);
+        font-size: 60px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 5px;    
+        @media #{$xxl}{
+            font-size: 55px;
+        } 
+        @media #{$xl}{
+            font-size: 52px;
+        } 
+        @media #{$lg}{
+            font-size: 42px;
+        } 
+        @media #{$md}{
+            font-size: 40px;
+        } 
+        @media #{$xs}{
+            font-size: 32px;
+        } 
+        @media #{$sm}{
+            font-size: 42px;
+        } 
+    }
+    &-list{
+        display: inline-block;
+        border-radius: 30px;
+        & span {
+            color: var(--it-common-white);
+            font-size: 19px;
+            font-style: normal;
+            text-transform: capitalize;
+            @media #{$lg,$md,$xs}{
+                font-size: 14px;
+            }
+            &.dvdr{
+                color: var(--it-common-white);
+                font-weight: 500;
+                font-size: 16px;
+                padding: 0 18px;
+            }
+            &.color {
+                color: var(--it-theme-1);
+            }
+        }
+    }
+    &-shape {
+        &-1 {
+            position: absolute;
+            top: 28%;
+            left: 6%;
+            animation: rotate2 4s linear infinite;
+            @media #{$xxl,$xl,$lg}{
+                transform: scale(.7);
+            }
+            @media #{$md,$xs}{
+                transform: scale(.5);
+                top: 49%;
+                left: 1%;
+            }
+        }
+        &-2 {
+            position: absolute;
+            top: 22%;
+            right: 12%;
+            animation: moving 9s linear infinite;
+            @media #{$xxl,$xl,$lg}{
+                transform: scale(.7);
+                right: 3%;
+            }
+            @media #{$md,$xs}{
+                display: none;
+            }
+        }
+        &-3 {
+            position: absolute;
+            top: 33%;
+            right: 28%;
+            animation: rotate2 4s linear infinite;
+            @media #{$xxl,$xl,$lg}{
+                transform: scale(.7);
+            }
+            @media #{$md,$xs}{
+                transform: scale(.5);
+                top: 10%;
+                right: 4%;
+            }
+        }
+        &-4 {
+            position: absolute;
+            bottom: 15%;
+            right: 23%;
+ 
+            @media #{$xxl,$xl,$lg}{
+                transform: scale(.7);
+            }
+            @media #{$md,$xs}{
+                transform: scale(.5);
+            }
+        }
+        &-5 {
+            position: absolute;
+            left: 2%;
+            bottom: 5%;
+            animation: rotate2 4s linear infinite;
+            @media #{$xxl,$xl,$lg}{
+                transform: scale(.7);
+            }
+            @media #{$md,$xs}{
+                transform: scale(.5);
+            }
+        }
+        &-6 {
+            position: absolute;
+            bottom: 19%;
+            left: 28%;
+            animation: moving 3s linear infinite;
+            @media #{$xxl,$xl,$lg}{
+                transform: scale(.7);
+            }
+            @media #{$md,$xs}{
+                transform: scale(.5);
+            }
+        }
+        &-7 {
+            position: absolute;
+            top: 5%;
+            left: 39%;    
+            animation: ittranslateX2 4s infinite alternate;
+            @media #{$xxl,$xl,$lg}{
+                transform: scale(.7);
+            }   
+            @media #{$md,$xs}{
+                transform: scale(.5);
+            }     
+        }
+        &-8 {
+            position: absolute;
+            bottom: 13%;
+            right: 40%;
+            animation: moving 9s linear infinite;
+            @media #{$xxl,$xl,$lg}{
+                transform: scale(.7);
+            }
+            @media #{$md,$xs}{
+                transform: scale(.5);
+            }
+        }
+        &-9 {
+            position: absolute;
+            right: 4%;
+            bottom: 15%;
+            animation: ittranslateY2 4s infinite alternate;
+            @media #{$xxl,$xl,$lg}{
+                transform: scale(.7);
+            }
+            @media #{$md,$xs}{
+                transform: scale(.5);
+            }
+        }
+    }
+}
+
+

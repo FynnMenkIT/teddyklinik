@@ -1,0 +1,19 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  05. brand css start
+/*----------------------------------------*/
+
+.it-brand {
+    &-height {
+        padding:49px 0;
+    }
+    &-shape {
+        &-1 {
+            position: absolute;
+            top: 50%;
+            right: 15%;
+            transform: translateY(-50%);
+        }
+    }
+}

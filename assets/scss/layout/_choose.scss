@@ -1,0 +1,197 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  08. choose css start
+/*----------------------------------------*/
+.it-choose {
+    &-ptb{
+        padding: 150px 0;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        @media #{$lg,$md,$xs}{
+            padding: 100px 0;
+            margin-top: 0;
+            margin-bottom: 0px;
+        }
+    } 
+    &-content {
+        @media #{$md,$xs}{
+            margin-bottom: 50px;
+        }
+    }
+    &-thumb {
+        mask-image: url(../img/choose/png.png);
+        -webkit-mask-image: url(../img/choose/png.png);
+        height: 100%;
+        width: 100%;
+        mask-repeat: no-repeat;
+        background-position: center center;
+        overflow: hidden;
+    }
+    &-text {
+        & p {
+            @media #{$xl,$lg,$md,$xs}{
+                font-size: 14px;
+            }
+        }
+    }
+    &-shape {
+        &-1 {
+            position: absolute;
+            top: -34%;
+            left: -21%;
+            z-index: -1;
+            @media #{$lg,$md,$xs}{
+                transform: scale(.9);
+            }
+        }
+        &-2 {
+            position: absolute;
+            top: 3%;
+            left: 49%;
+            animation: itswing .9s forwards infinite alternate;
+            transform-origin: top right;
+            @media #{$lg,$md,$xs}{
+                transform: scale(.5);
+            }
+        }
+        &-3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scale(1.08);
+        }
+        &-4 {
+            position: absolute;
+            bottom: 23%;
+            right: -1%;
+            animation: rotate2 4s linear infinite;
+            @media #{$lg,$md,$xs}{
+                transform: scale(.7);
+            }
+        }
+        &-5 {
+            position: absolute;
+            bottom: -4%;
+            left: -16%;
+            animation: itswing 1.4s forwards infinite alternate;
+            transform-origin: top right;
+            @media #{$lg,$md,$xs}{
+                transform: scale(.7);
+            }
+        }
+        &-6 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            
+        }
+        &-7 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            animation: moving 9s linear infinite;
+        }
+        &-8 {
+            position: absolute;
+            top: -34px;
+            left: -31px;
+            @media #{$xl}{
+                top: -10px;
+                left: -5px;
+                transform: scale(1.06);
+            }
+            @media #{$lg}{
+                top: 0;
+                left: 0;
+                transform: scale(1.07);
+            }
+            @media #{$md}{
+                top: -28px;
+                left: 0;       
+                transform: scale(.96);
+            }
+            @media #{$xs}{
+                top: 0;
+                left: 0;
+                transform: scale(1.08);
+            }
+
+        }
+        &-9 {
+            position: absolute;
+            top: -11%;
+            left: 0;
+            z-index: -1;
+            @media #{$xxl}{
+                top: -9%;
+            }
+            @media #{$xl}{
+                top: -7%;
+            }
+            @media #{$lg}{
+                top: -6%;
+            }
+        }
+        &-10 {
+            position: absolute;
+            bottom:-10%;
+            left: 0;
+        }
+    }
+}
+.it-choose-2 {
+    &-thumb{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        z-index: 2;
+        display: inline-block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    &-thumb-box {
+        margin-left: 90px;
+        @media #{$xl,$lg,$md,$xs}{
+           margin-left: 0;
+        }
+    }
+    &-icon {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        transform: translateY(-50%);
+        & a {
+            display: inline-block;
+            height: 80px;
+            line-height: 77px;
+            width: 80px;
+            border-radius: 50%;
+            font-size: 30px;
+            text-align: center;
+            border: 3px solid var(--it-common-black);
+            color: var(--it-common-black);
+            @media #{$xs}{
+                height: 60px;
+                line-height: 57px;
+                width: 60px;
+                font-size: 20px;
+            }
+            & i {
+                display: inline-block;
+                padding-left: 8px;
+                @media #{$xs}{
+                    padding-left: 3px;
+                }
+            }
+        }
+    }
+}

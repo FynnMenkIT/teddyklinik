@@ -1,0 +1,13 @@
+
+// font url
+
+$font-url: 'https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&family=Schoolbell&display=swap" rel="stylesheet';
+// font family
+$font-family: (
+    'ff': (
+        'body': "'Open Sans', sans-serif",
+        'heading': "'DynaPuff', sans-serif",
+        'schoolbell': "'Schoolbell', cursive",
+        'fontawesome':"Font Awesome 6 Pro",
+    )
+);
