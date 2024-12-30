@@ -198,8 +198,27 @@
 
 	////////////////////////////////////////////////////
 	// 11. Data CSS Js
-	$("[data-background").each(function () {
-		$(this).css("background-image", "url( " + $(this).attr("data-background") + "  )");
+	$("[data-background], [data-background-desktop], [data-background-mobile]").each(function () {
+		const $this = $(this);
+		const desktopBg = $this.attr("data-background-desktop");
+		const mobileBg = $this.attr("data-background-mobile");
+		const defaultBg = $this.attr("data-background");
+
+		function setBackground() {
+			if (window.innerWidth <= 768 && mobileBg) {
+				$this.css("background-image", "url(" + mobileBg + ")");
+			} else if (desktopBg) {
+				$this.css("background-image", "url(" + desktopBg + ")");
+			} else if (defaultBg) {
+				$this.css("background-image", "url(" + defaultBg + ")");
+			}
+		}
+
+		// Set background on load
+		setBackground();
+
+		// Update background on resize
+		$(window).on('resize', setBackground);
 	});
 
 	$("[data-width]").each(function () {
@@ -428,11 +447,12 @@
 	const sliderswiper = new Swiper('.it-slider-active', {
 		// Optional parameters
 		speed: 1000,
-		loop: true,
+		loop: false,
 		slidesPerView: 1,
-		autoplay: true,
+		autoplay: false,
 		roundLengths: true,
 		effect: 'fade',
+
 		breakpoints: {
 			'1400': {
 				slidesPerView: 1,
