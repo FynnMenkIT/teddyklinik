@@ -3367,20 +3367,6 @@ only screen and (min-width: 768px) and (max-width: 991px),
   visibility: hidden;
 }
 
-.it-slider-overlay {
-  position: relative;
-}
-
-.it-slider-overlay::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  content: "";
-}
-
 .it-slider-height {
   height: 880px;
   display: flex;
@@ -3517,8 +3503,6 @@ only screen and (min-width: 768px) and (max-width: 991px),
 }
 
 .it-slider-active .swiper-slide.swiper-slide-active .it-slider-bg {
-  -webkit-transform: scale(1.15);
-  transform: scale(1.15);
   opacity: 1;
   visibility: visible;
 }
