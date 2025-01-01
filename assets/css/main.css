@@ -250,7 +250,7 @@ input {
   padding: 0 20px;
   line-height: 58px;
   font-size: 19px;
-  color: var(--it-heading-primary);
+  color: var(--it-theme-1);
   text-transform: capitalize;
 }
 
@@ -277,7 +277,7 @@ textarea {
   border: none;
   resize: none;
   font-size: 19px;
-  color: var(--it-heading-primary);
+  color: var(--it-theme-1);
   text-transform: capitalize;
 }
 
@@ -457,7 +457,7 @@ textarea::-ms-input-placeholder {
 }
 
 .it-btn.circle-effect::after {
-  background-color: var(--it-common-black);
+  background-color: var(--it-theme-2);
   bottom: -100%;
   content: "";
   left: 0;
@@ -544,7 +544,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
 }
 
 .it-btn-white.circle-effect::after {
-  background-color: var(--it-common-black);
+  background-color: var(--it-theme-2);
   bottom: -100%;
   content: "";
   left: 0;
@@ -8960,8 +8960,9 @@ only screen and (min-width: 768px) and (max-width: 991px),
 
 .postbox__select .nice-select span {
   font-weight: 500;
-  font-size: 15px;
-  color: var(--it-common-white);
+  line-height: 58px;
+  font-size: 19px;
+  color: var(--it-theme-1);
 }
 
 .postbox__select .nice-select.open::after {
