@@ -474,6 +474,10 @@ textarea::-ms-input-placeholder {
   z-index: -1;
 }
 
+.it-choose-area .it-btn.circle-effect::after {
+  background-color: var(--it-theme-1);
+}
+
 .it-btn.white-style::after {
   background-color: var(--it-common-white);
 }
