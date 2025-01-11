@@ -44,7 +44,120 @@
 /*----------------------------------------*/
 /* 01. THEME DEFAULT CSS START
 /*----------------------------------------*/
-@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&family=Schoolbell&display=swap" rel="stylesheet');
+/* Schriftarten einbinden */
+@font-face {
+  font-family: 'DynaPuff';
+  src: url('../fonts/DynaPuff/DynaPuff-Regular.woff2') format('woff2'),
+    url('../fonts/DynaPuff/DynaPuff-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DynaPuff';
+  src: url('../fonts/DynaPuff/DynaPuff-Medium.woff2') format('woff2'),
+    url('../fonts/DynaPuff/DynaPuff-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DynaPuff';
+  src: url('../fonts/DynaPuff/DynaPuff-SemiBold.woff2') format('woff2'),
+    url('../fonts/DynaPuff/DynaPuff-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DynaPuff';
+  src: url('../fonts/DynaPuff/DynaPuff-Bold.woff2') format('woff2'),
+    url('../fonts/DynaPuff/DynaPuff-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DynaPuff Condensed';
+  src: url('../fonts/DynaPuff/DynaPuffCondensed-Regular.woff2') format('woff2'),
+    url('../fonts/DynaPuff/DynaPuffCondensed-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DynaPuff Condensed';
+  src: url('../fonts/DynaPuff/DynaPuffCondensed-Medium.woff2') format('woff2'),
+    url('../fonts/DynaPuff/DynaPuffCondensed-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DynaPuff Condensed';
+  src: url('../fonts/DynaPuff/DynaPuffCondensed-SemiBold.woff2') format('woff2'),
+    url('../fonts/DynaPuff/DynaPuffCondensed-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DynaPuff Condensed';
+  src: url('../fonts/DynaPuff/DynaPuffCondensed-Bold.woff2') format('woff2'),
+    url('../fonts/DynaPuff/DynaPuffCondensed-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Schoolbell';
+  src: url('../fonts/Schoolbell/Schoolbell.woff2') format('woff2'),
+    url('../fonts/Schoolbell/Schoolbell.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/open-sans-v40-latin-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/open-sans-v40-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/open-sans-v40-latin-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/open-sans-v40-latin-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/open-sans-v40-latin-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/open-sans-v40-latin-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
 
 :root {
   /**

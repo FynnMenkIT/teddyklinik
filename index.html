@@ -323,7 +323,7 @@
                      <p>
                         Helfen Sie uns, Kindern spielerisch die Angst vor Arztbesuchen zu nehmen und ihnen
                         gleichzeitig wichtige medizinische
-                        Grundkenntnisse zu vermitteln. Gemeinsam können wir weiterhin kleine Patienten und ihre
+                        Grundkenntnisse zu vermitteln. Gemeinsam können wir weiterhin kleine Begleiter:innen und ihre
                         Kuscheltiere glücklich machen
                         und ihnen ein unvergessliches Erlebnis schenken.
                      </p>
@@ -367,7 +367,7 @@
                      <div class="it-contact-content">
                         <h4 class="it-contact-title">Wie kann ich spenden?</h4>
                         <p>
-                           HIER können Sie ganz einfach spenden.
+                           Ein Spendenlink folgt noch.
                         </p>
                         <p>
                            Für Sachspenden und sonstige Spendenideen kontaktieren Sie uns gerne über das
@@ -499,33 +499,33 @@
                            Wir freuen uns, von dir zu hören!
                         </p>
                      </div>
-                     <form action="#" onsubmit="return validateForm()">
+                     <form id="contact-form" action="assets/mail.php" onsubmit="return validateForm()">
                         <div class="it-student-regiform-wrap">
                            <div class="row gx-20">
                               <div class="col-xl-6">
                                  <div class="it-student-regiform-item">
-                                    <input type="text" id="vorname" placeholder="Vorname" required>
+                                    <input type="text" name="vorname" id="vorname" placeholder="Vorname" required>
                                  </div>
                               </div>
                               <div class="col-xl-6">
                                  <div class="it-student-regiform-item">
-                                    <input type="text" id="nachname" placeholder="Nachname" required>
+                                    <input type="text" name="nachname" id="nachname" placeholder="Nachname" required>
                                  </div>
                               </div>
                               <div class="col-xl-6">
                                  <div class="it-student-regiform-item">
-                                    <input type="email" id="email" placeholder="E-Mail" required>
+                                    <input type="email" name="email" id="email" placeholder="E-Mail" required>
                                  </div>
                               </div>
                               <div class="col-xl-6">
                                  <div class="it-student-regiform-item">
-                                    <input type="text" id="phone" placeholder="Telefon (optional)">
+                                    <input type="text" name="phone" id="phone" placeholder="Telefon (optional)">
                                  </div>
                               </div>
                               <div class="col-xl-12">
                                  <div class="it-student-regiform-item">
                                     <div class="postbox__select">
-                                       <select id="subject" class="nice-select" required>
+                                       <select name="subject" id="subject" class="nice-select" required>
                                           <option value="" disabled selected>Betreff</option>
                                           <option value="Spenden">Spenden</option>
                                           <option value="Teddydoc">Teddydoc werden</option>
@@ -537,7 +537,8 @@
                               </div>
                               <div class="col-xl-12">
                                  <div class="it-student-regiform-item">
-                                    <textarea id="message" placeholder="Nachricht" maxlength="360" required></textarea>
+                                    <textarea name="message" id="message" placeholder="Nachricht" maxlength="360"
+                                       required></textarea>
                                  </div>
                               </div>
                               <div class="col-xl-12">
@@ -557,6 +558,7 @@
                            </div>
                         </div>
                      </form>
+                     <div id="formResponse" class="ajax-response"></div>
                   </div>
                </div>
             </div>
@@ -800,8 +802,8 @@
                   <div class="it-footer-widget footer-col-3">
                      <div class="it-footer-text">
                         <p class="text-end">
-                           <a href="#">Impressum</a> |
-                           <a href="#">Datenschutz</a>
+                           <a href="impressum.html">Impressum</a> |
+                           <a href="datenschutz.html">Datenschutz</a>
                         </p>
                      </div>
                   </div>
