@@ -1,4 +1,14 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use Dotenv\Dotenv;
+
+require '../vendor/autoload.php';
+
+// Laden der Umgebungsvariablen
+$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Formularfelder abrufen und bereinigen
@@ -17,30 +27,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // Empfänger-E-Mail-Adresse
-    $recipient = "fynn.menk@gmail.com";
-    $subject = "Neue Kontaktanfrage: $subject";
+    // PHPMailer-Instanz erstellen
+    $mail = new PHPMailer(true);
 
-    // E-Mail-Inhalt
-    $email_content = "Vorname: $vorname\n";
-    $email_content .= "Nachname: $nachname\n";
-    $email_content .= "E-Mail: $email\n";
-    $email_content .= "Telefon: $phone\n\n";
-    $email_content .= "Betreff: $subject\n\n";
-    $email_content .= "Nachricht:\n$message\n";
+    try {
+        // Server-Einstellungen
+        $mail->isSMTP();
+        $mail->Host = $_ENV['SMTP_HOST'];
+        $mail->SMTPAuth = true;
+        $mail->Username = $_ENV['SMTP_USERNAME'];
+        $mail->Password = $_ENV['SMTP_PASSWORD'];
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = $_ENV['SMTP_PORT'];
 
-    // E-Mail-Header
-    $email_headers = "From: $vorname $nachname <$email>";
+        // Empfänger
+        $mail->setFrom($_POST["email"], "$vorname $nachname");
+        $mail->addAddress($_ENV['SMTP_USERNAME']); // Empfänger-E-Mail-Adresse
 
-    // Versuche die E-Mail zu senden
-    if (mail($recipient, $subject, $email_content, $email_headers)) {
-        // Setze eine 200 (Erfolg) Antwort
+        // Inhalt
+        $mail->isHTML(false);
+        $mail->Subject = "Neue Kontaktanfrage: $subject";
+        $mail->Body = "Vorname: $vorname\nNachname: $nachname\nE-Mail: $email\nTelefon: $phone\n\nBetreff: $subject\n\nNachricht:\n$message\n";
+
+        $mail->send();
         http_response_code(200);
         echo "Danke! Ihre Nachricht wurde gesendet.";
-    } else {
-        // Setze eine 500 (interner Serverfehler) Antwort
+    } catch (Exception $e) {
         http_response_code(500);
-        echo "Oops! Etwas ist schief gelaufen und wir konnten Ihre Nachricht nicht senden.";
+        echo "Oops! Etwas ist schief gelaufen und wir konnten Ihre Nachricht nicht senden. Mailer Error: {$mail->ErrorInfo}";
     }
 
 } else {

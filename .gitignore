@@ -18,3 +18,17 @@ yarn-error.log*
 # IDE specific files
 .vscode/
 *.code-workspace
+
+# Composer dependencies
+/vendor/
+
+/composer.lock
+
+# PHPStorm project files
+.idea/
+
+# PHPUnit
+.phpunit.result.cache
+
+# Other system files
+Thumbs.db
