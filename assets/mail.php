@@ -2,11 +2,12 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Formularfelder abrufen und bereinigen
-    $vorname = strip_tags(trim($_POST["vorname"]));
-    $nachname = strip_tags(trim($_POST["nachname"]));
-    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $subject = strip_tags(trim($_POST["subject"]));
-    $message = trim($_POST["message"]);
+    $vorname = isset($_POST["vorname"]) ? strip_tags(trim($_POST["vorname"])) : '';
+    $nachname = isset($_POST["nachname"]) ? strip_tags(trim($_POST["nachname"])) : '';
+    $email = isset($_POST["email"]) ? filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL) : '';
+    $phone = isset($_POST["phone"]) ? strip_tags(trim($_POST["phone"])) : '';
+    $subject = isset($_POST["subject"]) ? strip_tags(trim($_POST["subject"])) : '';
+    $message = isset($_POST["message"]) ? trim($_POST["message"]) : '';
 
     // Überprüfen, ob die Daten an den Mailer gesendet wurden
     if (empty($vorname) or empty($nachname) or empty($subject) or empty($message) or !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -23,7 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // E-Mail-Inhalt
     $email_content = "Vorname: $vorname\n";
     $email_content .= "Nachname: $nachname\n";
-    $email_content .= "E-Mail: $email\n\n";
+    $email_content .= "E-Mail: $email\n";
+    $email_content .= "Telefon: $phone\n\n";
     $email_content .= "Betreff: $subject\n\n";
     $email_content .= "Nachricht:\n$message\n";
 
