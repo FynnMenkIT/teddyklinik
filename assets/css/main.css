@@ -363,7 +363,8 @@ input {
   padding: 0 20px;
   line-height: 58px;
   font-size: 19px;
-  color: var(--it-theme-1);
+  font-weight: bold;
+  color: var(--it-common-white);
 }
 
 input::-webkit-input-placeholder {
@@ -389,7 +390,8 @@ textarea {
   border: none;
   resize: none;
   font-size: 19px;
-  color: var(--it-theme-1);
+  font-weight: bold;
+  color: var(--it-common-white);
 }
 
 textarea::-webkit-input-placeholder {
@@ -8915,7 +8917,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
 
 .it-student-regiform-item input {
   border-radius: 10px;
-  background-color: transparent;
+  background-color: var(--it-theme-1);
   border: 2px solid rgb(255, 255, 255);
 }
 
@@ -8946,7 +8948,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
 .it-student-regiform-item textarea {
   border-radius: 10px;
   height: 200px;
-  background-color: transparent;
+  background-color: var(--it-theme-1);
   padding: 15px 20px;
   border: 2px solid rgb(255, 255, 255);
 }
@@ -9050,7 +9052,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
   padding: 0px 20px;
   position: relative;
   border-radius: 10px;
-  background-color: transparent;
+  background-color: var(--it-theme-1);
   border: 2px solid rgb(255, 255, 255);
 }
 
@@ -9077,7 +9079,8 @@ only screen and (min-width: 768px) and (max-width: 991px),
   font-weight: 500;
   line-height: 58px;
   font-size: 19px;
-  color: var(--it-theme-1);
+  color: var(--it-common-white);
+  font-weight: bold;
 }
 
 .postbox__select .nice-select.open::after {
