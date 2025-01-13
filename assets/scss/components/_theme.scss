@@ -48,8 +48,14 @@
 /*----------------------------------------*/
 
 @import url($font-url);
-@media (min-width: 1400px){
-    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+@media (min-width: 1400px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
         max-width: 1350px;
     }
 }
@@ -66,9 +72,12 @@ body {
     line-height: 32px;
     overflow-x: hidden;
 }
-body,html{
+
+body,
+html {
     overflow-x: hidden;
 }
+
 a {
     text-decoration: none;
     transition: .3s;
@@ -133,22 +142,27 @@ p {
     position: relative;
     z-index: 1;
 }
+
 .z-index-3 {
     position: relative;
     z-index: 3;
 }
+
 .z-index-4 {
     position: relative;
     z-index: 4;
 }
+
 .z-index-5 {
     position: relative;
     z-index: 5;
 }
+
 .z-index-6 {
     position: relative;
     z-index: 6;
 }
+
 a,
 .btn,
 button,
@@ -204,7 +218,7 @@ button:focus {
 }
 
 input {
-    height:58px;
+    height: 58px;
     width: 100%;
     border: none;
     outline: none;
@@ -212,12 +226,13 @@ input {
     line-height: 58px;
     font-size: 19px;
     color: var(--it-common-black);
-    text-transform: capitalize;
-    @include it-placeholder{
-        color: #898989;       
+
+    @include it-placeholder {
+        color: #898989;
     }
 
 }
+
 textarea {
     outline: none;
     width: 100%;
@@ -226,9 +241,9 @@ textarea {
     resize: none;
     font-size: 19px;
     color: var(--it-common-black);
-    text-transform: capitalize;
-    @include it-placeholder{
-        color: #898989;       
+
+    @include it-placeholder {
+        color: #898989;
     }
 }
 
@@ -325,15 +340,18 @@ input[type="color"] {
     @include background();
 }
 
-.gx-5{
-	--bs-gutter-x:5px;
+.gx-5 {
+    --bs-gutter-x: 5px;
 }
-.gx-20{
-	--bs-gutter-x: 20px;
+
+.gx-20 {
+    --bs-gutter-x: 20px;
 }
-.gx-35{
-	--bs-gutter-x: 35px;
+
+.gx-35 {
+    --bs-gutter-x: 35px;
 }
-.gx-55{
-	--bs-gutter-x: 55px;
+
+.gx-55 {
+    --bs-gutter-x: 55px;
 }
