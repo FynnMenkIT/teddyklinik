@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Empfänger
         $mail->setFrom($_POST["email"], "$vorname $nachname");
-        $mail->addAddress($_ENV['SMTP_USERNAME']); // Empfänger-E-Mail-Adresse
+        $mail->addAddress('teddyklinikgiessen@gmail.com'); // Empfänger-E-Mail-Adresse
 
         // Inhalt
         $mail->isHTML(false);
