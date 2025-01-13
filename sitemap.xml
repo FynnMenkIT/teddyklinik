@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>https://www.teddyklinik-giessen.de/</loc>
+      <loc>https://teddyklinik-giessen.de/</loc>
       <lastmod>2023-10-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
    </url>
    <url>
-      <loc>https://www.teddyklinik-giessen.de/impressum.html</loc>
+      <loc>https://teddyklinik-giessen.de/impressum.html</loc>
       <lastmod>2023-10-01</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.teddyklinik-giessen.de/datenschutz.html</loc>
+      <loc>https://teddyklinik-giessen.de/datenschutz.html</loc>
       <lastmod>2023-10-01</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.8</priority>
    </url>
-   <!-- Weitere URLs hinzufügen -->
 </urlset>
