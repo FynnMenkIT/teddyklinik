@@ -2,4 +2,4 @@
 User-agent: *
 Disallow: /.ddev/
 Disallow: /.github/
-Sitemap: https://teddyklinik-giessen.de/sitemap.xml
+Sitemap: https://teddyklinikgiessen.de/sitemap.xml
