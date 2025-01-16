@@ -13,7 +13,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Environment variables
-.env
+/config/.env
 
 # IDE specific files
 .vscode/
@@ -32,3 +32,6 @@ yarn-error.log*
 
 # Other system files
 Thumbs.db
+
+# Ignore .htaccess in public folder
+/public/.htaccess
