@@ -1,4 +1,3 @@
-<!-- filepath: /var/teddyklinikgiessen.de/httpdocs/robots.txt -->
 User-agent: *
 Disallow: /.ddev/
 Disallow: /.github/
