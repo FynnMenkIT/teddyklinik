@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "dry-run: nur anzeigen was passieren würde, ohne etwas zu übertragen"
+        description: "dry-run: nur Paketinhalt anzeigen, keine Verbindung zum Server"
         type: choice
         options:
           - dry-run
@@ -28,37 +28,41 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-dev --optimize-autoloader --no-interaction
 
-      - name: Install lftp
-        run: sudo apt-get update && sudo apt-get install -y lftp
+      - name: Package release
+        run: |
+          tar --exclude='.git' --exclude='.github' --exclude='.ddev' --exclude='.env' \
+            -czf /tmp/deploy.tar.gz .
+
+      - name: Preview package contents (dry run)
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'dry-run'
+        run: tar -tzf /tmp/deploy.tar.gz
 
       - name: Prepare SSH key
+        if: github.event_name == 'release' || github.event.inputs.mode == 'deploy'
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
 
-      - name: Test SSH connectivity
-        env:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-        run: |
-          ssh -i ~/.ssh/deploy_key -o UserKnownHostsFile=~/.ssh/known_hosts \
-            -o BatchMode=yes -o ConnectTimeout=10 \
-            "$SSH_USER@$SSH_HOST" "echo SSH_OK"
-
-      - name: Deploy via SFTP
+      - name: Upload and extract on server
+        if: github.event_name == 'release' || github.event.inputs.mode == 'deploy'
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
-          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'dry-run' && '--dry-run' || '' }}
         run: |
-          echo "Modus: ${DRY_RUN:-echter Deploy}"
-          lftp -e "
-            set sftp:connect-program \"ssh -a -x -i \$HOME/.ssh/deploy_key -o UserKnownHostsFile=\$HOME/.ssh/known_hosts -o BatchMode=yes\";
-            set sftp:auto-confirm yes;
-            open -u \"$SSH_USER\", sftp://$SSH_HOST;
-            mirror -R --verbose $DRY_RUN --exclude-glob .git/ --exclude-glob .github/ --exclude-glob .ddev/ --exclude-glob .env . \"$DEPLOY_PATH/\";
-            bye
-          "
+          SSH_OPTS="-i $HOME/.ssh/deploy_key -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o BatchMode=yes -o ConnectTimeout=10"
+          scp $SSH_OPTS /tmp/deploy.tar.gz "$SSH_USER@$SSH_HOST:/tmp/deploy.tar.gz"
+          ssh $SSH_OPTS "$SSH_USER@$SSH_HOST" \
+            "tar -xzf /tmp/deploy.tar.gz -C '$DEPLOY_PATH' && rm /tmp/deploy.tar.gz"
+
+      - name: Health check
+        if: github.event_name == 'release' || github.event.inputs.mode == 'deploy'
+        run: |
+          status=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 https://teddyklinikgiessen.de/)
+          echo "HTTP-Status: $status"
+          if [ "$status" != "200" ]; then
+            echo "::error::Health check fehlgeschlagen (HTTP $status) nach dem Deploy"
+            exit 1
+          fi
