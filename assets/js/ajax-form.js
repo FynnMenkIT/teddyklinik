@@ -6,13 +6,16 @@ $(function() {
 	// Get the messages div.
 	var formMessages = $('.ajax-response');
 
+	// Timestamp used to measure how quickly the form gets submitted (spam signal).
+	var formLoadedAt = Date.now();
+
 	// Set up an event listener for the contact form.
 	$(form).submit(function(e) {
 		// Stop the browser from submitting the form.
 		e.preventDefault();
 
 		// Serialize the form data.
-		var formData = $(form).serialize();
+		var formData = $(form).serialize() + '&elapsed=' + (Date.now() - formLoadedAt);
 
 		// Submit the form using AJAX.
 		$.ajax({

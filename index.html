@@ -43,6 +43,7 @@
    <link rel="stylesheet" href="assets/css/magnific-popup.css">
    <link rel="stylesheet" href="assets/css/spacing.css">
    <link rel="stylesheet" href="assets/css/main.css">
+   <link rel="stylesheet" href="assets/css/spam-protect.css">
 
 </head>
 
@@ -563,7 +564,7 @@
                            Wir freuen uns, von dir zu hören!
                         </p>
                      </div>
-                     <form id="contact-form" action="assets/mail.php" onsubmit="return validateForm()">
+                     <form id="contact-form" action="assets/mail.php">
                         <div class="it-student-regiform-wrap">
                            <div class="row gx-20">
                               <div class="col-xl-6">
@@ -606,6 +607,10 @@
                                     <textarea name="message" id="message" placeholder="Nachricht" maxlength="360"
                                        required></textarea>
                                  </div>
+                              </div>
+                              <div class="it-student-regiform-item hp-field" aria-hidden="true">
+                                 <label for="website">Website</label>
+                                 <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
                               </div>
                               <div class="col-xl-12">
                                  <div class="it-student-regiform-button mt-20">
@@ -838,7 +843,7 @@
                                           fill="currentcolor" />
                                     </svg>
                                  </span>
-                                 <a href="mailto:teddyklinikgiessen@gmail.com">teddyklinikgiessen@gmail.com</a>
+                                 <a href="#" data-email-user="teddyklinikgiessen" data-email-domain="gmail.com" rel="nofollow">E-Mail senden</a>
                               </li>
                            </ul>
                         </div>
@@ -910,6 +915,7 @@
    <script src="assets/js/imagesloaded-pkgd.js"></script>
    <script src="assets/js/ajax-form.js"></script>
    <script src="assets/js/main.js"></script>
+   <script src="assets/js/email-protect.js"></script>
 
 
 

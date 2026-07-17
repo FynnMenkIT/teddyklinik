@@ -27,6 +27,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
+    // Spam-Erkennung: Honeypot-Feld, Ausfüllzeit, Link-Spam und Wegwerf-Mail-Domains.
+    // Bots bekommen bewusst dieselbe Erfolgsmeldung wie echte Absender, damit sie nicht
+    // merken, dass sie erkannt wurden und sich entsprechend anpassen.
+    $honeypot = isset($_POST['website']) ? trim($_POST['website']) : '';
+    $elapsedMs = isset($_POST['elapsed']) ? (int) $_POST['elapsed'] : 0;
+    $linkCount = substr_count(strtolower($message), 'http://') + substr_count(strtolower($message), 'https://');
+    $emailDomain = strtolower(substr(strrchr($email, '@'), 1));
+    $disposableDomains = file(__DIR__ . '/disposable-email-domains.conf', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+    $isSpam = !empty($honeypot)
+        || ($elapsedMs > 0 && $elapsedMs < 2000)
+        || $linkCount >= 2
+        || in_array($emailDomain, $disposableDomains, true);
+
+    if ($isSpam) {
+        http_response_code(200);
+        echo "Danke! Ihre Nachricht wurde gesendet.";
+        exit;
+    }
+
     // PHPMailer-Instanz erstellen
     $mail = new PHPMailer(true);
 
@@ -34,10 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Server-Einstellungen
         $mail->isSMTP();
         $mail->Host = $_ENV['SMTP_HOST'];
-        $mail->SMTPAuth = true;
+        $mail->SMTPAuth = filter_var($_ENV['SMTP_AUTH'] ?? true, FILTER_VALIDATE_BOOLEAN);
         $mail->Username = $_ENV['SMTP_USERNAME'];
         $mail->Password = $_ENV['SMTP_PASSWORD'];
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->SMTPSecure = $_ENV['SMTP_SECURE'] ?? PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = $_ENV['SMTP_PORT'];
 
         // Empfänger
@@ -54,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Danke! Ihre Nachricht wurde gesendet.";
     } catch (Exception $e) {
         http_response_code(500);
-        echo "Oops! Etwas ist schief gelaufen und wir konnten Ihre Nachricht nicht senden. Mailer Error: {$mail->ErrorInfo}";
+        echo "Oops! Etwas ist schief gelaufen und wir konnten Ihre Nachricht nicht senden. Bitte versuchen Sie es später erneut.";
     }
 
 } else {
