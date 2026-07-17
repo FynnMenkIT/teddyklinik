@@ -1,0 +1,46 @@
+name: Deploy to netcup
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --optimize-autoloader --no-interaction
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy via SFTP
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          echo "202.61.232.205 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAFpctphmPaYr+E3JpLjHvNCxFJuWWlUm4yTVxB69EMK" > ~/.ssh/known_hosts
+
+          lftp -e "
+            set sftp:connect-program 'ssh -a -x -i ~/.ssh/deploy_key -o UserKnownHostsFile=~/.ssh/known_hosts';
+            mirror -R --verbose \
+              --exclude-glob .git/ \
+              --exclude-glob .github/ \
+              --exclude-glob .ddev/ \
+              --exclude-glob .env \
+              . ${DEPLOY_PATH}/;
+            bye
+          " sftp://${SSH_USER}@${SSH_HOST}
