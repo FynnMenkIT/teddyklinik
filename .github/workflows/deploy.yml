@@ -4,6 +4,14 @@ on:
   release:
     types: [published]
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry-run: nur anzeigen was passieren würde, ohne etwas zu übertragen"
+        type: choice
+        options:
+          - dry-run
+          - deploy
+        default: dry-run
 
 jobs:
   deploy:
@@ -44,11 +52,13 @@ jobs:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'dry-run' && '--dry-run' || '' }}
         run: |
+          echo "Modus: ${DRY_RUN:-echter Deploy}"
           lftp -e "
             set sftp:connect-program \"ssh -a -x -i \$HOME/.ssh/deploy_key -o UserKnownHostsFile=\$HOME/.ssh/known_hosts -o BatchMode=yes\";
             set sftp:auto-confirm yes;
             open -u \"$SSH_USER\", sftp://$SSH_HOST;
-            mirror -R --verbose --exclude-glob .git/ --exclude-glob .github/ --exclude-glob .ddev/ --exclude-glob .env . \"$DEPLOY_PATH/\";
+            mirror -R --verbose $DRY_RUN --exclude-glob .git/ --exclude-glob .github/ --exclude-glob .ddev/ --exclude-glob .env . \"$DEPLOY_PATH/\";
             bye
           "
